@@ -1,4 +1,5 @@
-import java.sql.*;
+import DAO.SqlUserDao;
+
 // 1.	List all expenses incurred and calculate the total spend
 // 2.	Add a new expense
 // 3.	Delete an expense (by id)
@@ -10,25 +11,10 @@ import java.sql.*;
 
 public class Main {
   public static void main(String[] args) {
-    Main app = new Main();
-    app.sqlStart();
-  }
-
-  // Start the connection to the SQL server
-  public void sqlStart() {
-    String url = "jdbc:mysql://localhost:3306/";
-    String dbName = "oopca4db";
-    String userName = "root";
-    String password = "";
-
-    System.out.println("[-] Connecting to database...");
-
-    // Atempt to connect to the database
-    try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
-      System.out.println("[+] Connected to database");
-    } catch (SQLException e) {
-      System.out.println("[!] An error ocurred - " + e.getMessage());
-    }
+    SqlUserDao dao = new SqlUserDao();
+    dao.expenseListAll();
+    System.out.println();
+    dao.incomeListAll();
   }
 }
 
