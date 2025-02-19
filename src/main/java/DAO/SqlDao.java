@@ -21,9 +21,9 @@ public class SqlDao {
       Class.forName(driver);
       conn = DriverManager.getConnection(url, user, password);
     } catch (ClassNotFoundException e) {
-      System.out.println("[!] Driver class was not found - " + e.getMessage() + " @" + e.getStackTrace());
+      System.out.println("[!] Driver class was not found - " + e.getMessage());
     } catch (SQLException e) {
-      System.out.println("[!] SQL connection exception - " + e.getMessage() + " @" + e.getStackTrace());
+      System.out.println("[!] SQL connection exception - " + e.getMessage());
     }
 
     // If the connection is successful, we can return the connection object
